@@ -109,7 +109,7 @@ class DocovidController extends AbstractFOSRestController
    
     /**********list demande */
      /**
-     * @Route("/listApi", name="demande_index", methods={"GET"})
+     * @Route("/listApi", name="demande_list", methods={"GET"})
      */
     public function listDemande(DemandeRepository $demandeRepository): Response
     {
@@ -139,9 +139,9 @@ class DocovidController extends AbstractFOSRestController
        // var_dump($demandeArray);
        // var_dump($idDemande);
 
-        $ivraison->setNomReceveur($livraison);
-        $ivraison->setPrenomReceveur($request->get('nom'));
-        $ivraison->setTelephone($request->get('prenom'));
+        $ivraison->setNomReceveur($request->get('nom'));
+        $ivraison->setPrenomReceveur($request->get('prenom'));
+        $ivraison->setTelephone($request->get('telephone'));
         $ivraison->setAdresse($request->get('adresse'));
         $ivraison->setVille($request->get('ville'));
         $ivraison->setCite($request->get('cite'));
