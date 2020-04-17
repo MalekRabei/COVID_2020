@@ -1,0 +1,8 @@
+index:
+    path: /
+    controller: App\Controller\DocovidController::index
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+
