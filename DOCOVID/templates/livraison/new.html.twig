@@ -37,11 +37,9 @@
 				<div class="col-xl-8 col-lg-8">
 				<div class="box_general_3 cart">
 					 {{ include('livraison/_form.html.twig') }}
-
-                      <a href="{{ path('livraison_index') }}">back to list</a>
+				</div>
+				</div>
 				
-				</div>
-				</div>
 
 
 
@@ -89,11 +87,9 @@
 
 	<div id="toTop"></div>
 	<!-- Back to top button -->
-
-	<!-- COMMON SCRIPTS -->
-	<script src="js/jquery-2.2.4.min.js"></script>
-	<script src="js/common_scripts.min.js"></script>
-	<script src="js/functions.js"></script>
+		{% block javascripts %}
+			{{ parent() }}
+		{% endblock %}
      
 </body>
 

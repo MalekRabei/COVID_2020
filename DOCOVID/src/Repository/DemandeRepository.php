@@ -60,6 +60,19 @@ class DemandeRepository extends ServiceEntityRepository
 
         return $res;
     }
+    public function findDemandeByUser($iduser){
+
+        $query=$this->getEntityManager()->createQuery(
+            "select d
+            from App\Entity\Demande d  
+            where d.id_user = $iduser
+             ");
+
+        $res= $query->getResult();
+
+
+        return $res;
+    }
 
 
     public function findDemande($id){
@@ -73,7 +86,17 @@ class DemandeRepository extends ServiceEntityRepository
 
         $res= $query->getResult();
 
+        
+    }
 
-        return $res;
+    public function findDemandeByQuery($str){
+      
+
+            return $this->getEntityManager()
+        ->createQuery("SELECT d FROM App\Entity\Demande d
+                            where d.materiel LIKE :str ")
+        ->setParameter('str', '%' . $str . '%')
+        ->getResult();
+       
     }
 }

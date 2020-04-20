@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Demande index{% endblock %}
+{% block title %}Liste des demandes {% endblock %}
 
 {% block body %}
 <body>
@@ -22,12 +22,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<h4><strong>Showing 10</strong> of 140 results</h4>
+						<h4><strong>Chercher</strong> Le matériel que vous pouvez offrir</h4>
 					</div>
 					<div class="col-md-6">
 						<div class="search_bar_list">
-							<input type="text" class="form-control" placeholder="Ex. Specialist, Name, Doctor...">
-							<input type="submit" value="Search">
+							<input type="text" class="form-control" id="search" placeholder="Ex. Masque, Bavette...">
+							
 						</div>
 					</div>
 				</div>
@@ -44,14 +44,14 @@
 						<h6>Type</h6>
 						<div class="switch-field">
 							<input type="radio" id="all" name="type_patient" value="all" checked>
-							<label for="all">All</label>
-							<input type="radio" id="doctors" name="type_patient" value="doctors">
+							<label for="all">Tous</label>
+							<!--input type="radio" id="doctors" name="type_patient" value="doctors">
 							<label for="doctors">Masques</label>
 							<input type="radio" id="clinics" name="type_patient" value="clinics">
-							<label for="clinics">Clinics</label>
+							<label for="clinics">Clinics</label-->
 						</div>
 					</li>
-					<li>
+					<!--li>
 						<h6>Layout</h6>
 						<div class="layout_view">
 							<a href="grid-list.html"><i class="icon-th"></i></a>
@@ -67,39 +67,38 @@
 						<option value="Men">Men</option>
 						<option value="Women">Women</option>
 						</select>
-					</li>
+					</li-->
 				</ul>
 			</div>
 			<!-- /container -->
 		</div>
 		<!-- /filters -->
 		
-		<div class="container margin_60_35">
-			<div class="row">
+		<div class="container margin_60_35" id="entitiesNav" >
+			<div class="row" >
 				<div class="col-lg-12">
         {% for demande in demandes %}
 
-					<div class="strip_list wow fadeIn">
-						<a href="#0" class="wish_bt"></a>
+					<div class="strip_list wow fadeIn" >
+						<!--a href="#0" class="wish_bt"></a-->
 						
-						<small>Nom utilisateur</small>
+						<small>{{demande.livraison.prenomReceveur}}  {{demande.livraison.nomReceveur}}</small>
 						<h3>{{ demande.materiel }}</h3>
 						<span >Quantité : {{ demande.quantite }} </span>
 						<p>{{ demande.message }}</p>
 
                         <small>{{ demande.dateDemande ? demande.dateDemande|date('Y-m-d') : '' }} {{ demande.tempsDemande ? demande.tempsDemande|date('H:i:s') : ''  }}</small>
+						<h3>Details livraison</h3>
+						<span >Téléphone : {{ demande.livraison.telephone}} </span><br>
+						<span >Adresse : {{ demande.livraison.adresse }} , {{ demande.livraison.cite }},{{ demande.livraison.ville }}, {{ demande.livraison.codePostal}}  </span>
 
-						<ul>
-							<li><a href="#0" onclick="onHtmlClick('Doctors', 0)" class="btn_listing">View on Map</a></li>
-							<li><a href="https://www.google.com/maps/dir//Assistance+%E2%80%93+H%C3%B4pitaux+De+Paris,+3+Avenue+Victoria,+75004+Paris,+Francia/@48.8606548,2.3348734,14z/data=!4m15!1m6!3m5!1s0x0:0xa6a9af76b1e2d899!2sAssistance+%E2%80%93+H%C3%B4pitaux+De+Paris!8m2!3d48.8568376!4d2.3504305!4m7!1m0!1m5!1m1!1s0x47e67031f8c20147:0xa6a9af76b1e2d899!2m2!1d2.3504327!2d48.8568361" target="_blank">Directions</a></li>
-							<li><a href="{{ path('livraison', {'id': demande.livraison.id}) }}">Livraison</a></li>
-                            <!--li><a href="{{ path('demande_edit', {'id': demande.id}) }}">Modifier</a></li-->
-						</ul>
+
+						
 					</div>
         {% endfor %}
 					
 					
-					<nav aria-label="" class="add_top_20">
+					<!--nav aria-label="" class="add_top_20">
 						<ul class="pagination pagination-sm">
 							<li class="page-item disabled">
 								<a class="page-link" href="#" tabindex="-1">Previous</a>
@@ -111,7 +110,7 @@
 								<a class="page-link" href="#">Next</a>
 							</li>
 						</ul>
-					</nav>
+					</nav-->
 					<!-- /pagination -->
 				</div>
 				<!-- /col -->
@@ -136,18 +135,82 @@
 	<!-- Back to top button -->
 
 	<!-- COMMON SCRIPTS -->
-	<script src="js/jquery-2.2.4.min.js"></script>
-	<script src="js/common_scripts.min.js"></script>
-	<script src="js/functions.js"></script>
+	{% block javascripts %}
+	   {{ parent() }}
+	 {% endblock %}
 	
-	<!-- SPECIFIC SCRIPTS -->
-	<script src="http://maps.googleapis.com/maps/api/js"></script>
-	<script src="js/markerclusterer.js"></script>
-    <script src="js/map_listing.js"></script>
-    <script src="js/infobox.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	 <script type="text/javascript">
+            $(document).ready(function() {
+                let searchRequest = null;
+                $("#search").keyup(function() {
+                    let minlength = 1;
+                    let that = this;
+                    let value = $(this).val();
+                    let entitySelector = $("#entitiesNav").html('');
+                    if (value.length >= minlength ) {
+                        if (searchRequest != null)
+                            searchRequest.abort();
+                        searchRequest = $.ajax({
+                            type: "GET",
+                            url: "{{ path('search') }}",
+                            data: {
+                                'q' : value
+                            },
+                            dataType: "text",
+                            success: function(msg){
+                                //we need to check if the value is the same
+                                if (value===$(that).val()) {
+                                    let result = JSON.parse(msg);
+                                    $.each(result, function(key, arr) {
+                                        $.each(arr, function(id, value) {
+                                            if (key === 'demandes') {
+                                                if (id !== 'error') {
+                                                    console.log(value[0]);
+                                                    entitySelector.append(
+'<div class="row" >'+
+				'<div class="col-lg-12">'+
+  
+
+					'<div class="strip_list wow fadeIn">'+
+						
+						
+						'<small>' + value[5] +' '+value[6]+ '</small>'+
+						'<h3>'+value[0]+'</h3>'+
+						'<span >Quantité : '+value[1]+' </span>'+
+						'<p>'+value[4]+'</p>'+
+						'<h3> Details de la livraison </h3>'+
+						'<p> Téléphone : '+value[7]+'</p>'+
+						'<p> Adresse : '+value[8]+' '+value[9]+' ,'+value[10]+' ,'+value[11]+'</p>'+
+                        '<small>'+value[2]['date']+'</small>'+
+
+					'</div>'+
+					'</div>'+
+					'</div>'+
+					'</div>'
+
+
+            );
+						} else {
+							entitySelector.append(
+								'<li class="errorLi">Aucun employée avec ce nom </li>');
+						}
+                                            }
+                                        });
+                                    });
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
+
+
+
+
+	
 
 </body>
     
-
-    <a href="{{ path('demande_new') }}">Create new</a>
 {% endblock %}

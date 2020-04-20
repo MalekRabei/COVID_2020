@@ -5,7 +5,7 @@
 
 {% block body %}
 
-
+	
 <body>
 
 	<div class="layer"></div>
@@ -16,48 +16,9 @@
 	</div>
 	<!-- End Preload -->
     
-	<header class="header_sticky">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-6">
-					<div id="logo">
-						<a href="index.html" title="DOCOVID"><img src="img/logo.png" data-retina="true" alt="" width="163" height="36"></a>
-					</div>
-				</div>
-				<nav class="col-lg-9 col-6">
-					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
-					<ul id="top_access">
-						<li><a href="login.html"><i class="pe-7s-user"></i></a></li>
-						<li><a href="register-doctor.html"><i class="pe-7s-add-user"></i></a></li>
-					</ul>
-					<div class="main-menu">
-						<ul>
-							<li class="submenu">
-								<a href="index.html" >ACCUEIL</a>
-								
-							</li>
-							<li class="submenu">
-								<a href="#0" class="show-submenu">DONNES</a>
-								<ul>
-                                    <li><a href="#">Liste des offres</a></li>
-								</ul>
-							</li>
-							<li class="submenu">
-								<a href="#0" class="show-submenu">REÇOIS<i class="icon-down-open-mini"></i></a>
-								<ul>
-                                    <li><a href="#">Liste des demandes</a></li>
-                                    <li><a href="#">Postuler votre demande </a></li>
-                                	
-								</ul>
-							</li>
-						</ul>
-					</div>
-					<!-- /main-menu -->
-				</nav>
-			</div>
-		</div>
-		<!-- /container -->
-	</header>
+	{% block header %}
+	   {{ parent() }}
+	 {% endblock %}
 	<!-- /header -->
 	
 	
@@ -106,69 +67,18 @@
 	</main>
 	<!-- /main -->
 	
-	<footer>
-		<div class="container margin_60_35">
-			<div class="row">
-				<div class="col-lg-6 col-md-12">
-					<p>
-						<a href="index.html" title="Findoctor">
-							<img src="img/logo.png" data-retina="true" alt="" width="163" height="36" class="img-fluid">
-						</a>
-					</p>
-				</div>
-				<div class="col-lg-3 col-md-4">
-					<h5>A propos </h5>
-					<ul class="links">
-						<li><a href="#0">A propos de nous</a></li>
-						<li><a href="#0">FAQ</a></li>
-						
-					</ul>
-				</div>
-				
-				<div class="col-lg-3 col-md-4">
-					<h5>Contact with Us</h5>
-					<ul class="contacts">
-						<li><a href="tel://61280932400"><i class="icon_mobile"></i> + 61 23 8093 3400</a></li>
-						<li><a href="mailto:info@findoctor.com"><i class="icon_mail_alt"></i> help@docovid.com</a></li>
-					</ul>
-					<div class="follow_us">
-						<h5>Suivez nous</h5>
-						<ul>
-							<li><a href="#0"><i class="social_facebook"></i></a></li>
-							<li><a href="#0"><i class="social_twitter"></i></a></li>
-							<li><a href="#0"><i class="social_linkedin"></i></a></li>
-							<li><a href="#0"><i class="social_instagram"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<!--/row-->
-			<hr>
-			<div class="row">
-				<div class="col-md-8">
-					<ul id="additional_links">
-						<li><a href="#0">Terms and conditions</a></li>
-						<li><a href="#0">Privacy</a></li>
-					</ul>
-				</div>
-				<div class="col-md-4">
-					<div id="copy">Made with <img src="img/health.png"> © 2020 Malek Rabei & Iheb Farhani</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+	{% block footer %}
+	   {{ parent() }}
+	 {% endblock %}
 	<!--/footer-->
 
 	<div id="toTop"></div>
 	<!-- Back to top button -->
 
 	<!-- COMMON SCRIPTS -->
-	<script src="js/jquery-2.2.4.min.js"></script>
-	<script src="js/common_scripts.min.js"></script>
-	<script src="js/functions.js"></script>
-	
-	<!-- SPECIFIC SCRIPTS -->
-	<script src="assets/validate.js"></script>
+	{% block javascripts %}
+	   {{ parent() }}
+	 {% endblock %}
      
 </body>
 </html>

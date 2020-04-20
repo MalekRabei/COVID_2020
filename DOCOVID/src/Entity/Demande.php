@@ -46,6 +46,12 @@ class Demande
      */
     private $livraison;
 
+     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(name="id_user",referencedColumnName="id")
+     */
+    private $id_user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,5 +127,22 @@ class Demande
         $this->livraison = $livraison;
 
         return $this;
+    }
+
+
+     /**
+     * @return mixed
+     */
+    public function getIdUser()
+    {
+        return $this->id_user;
+    }
+
+    /**
+     * @param mixed $id_user
+     */
+    public function setIdUser($id_user)
+    {
+        $this->id_user = $id_user;
     }
 }

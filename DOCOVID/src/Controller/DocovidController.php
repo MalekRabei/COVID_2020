@@ -12,6 +12,9 @@ use App\Entity\Livraison;
 use App\Form\LivraisonType;
 use App\Repository\LivraisonRepository;
 
+use App\Form\ContactType;
+
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -24,6 +27,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 class DocovidController extends AbstractFOSRestController
 {
     public function __construct( DemandeRepository $dr){
@@ -35,7 +41,12 @@ class DocovidController extends AbstractFOSRestController
    
     public function index()
     {
+        $form = $this ->createFormBuilder(null)
+        ->add('query', TextType::class)
+        ->getForm();
+       
         return $this->render('docovid/index.html.twig', [
+            'form'=> $form->createView()
         ]);
     }
 
@@ -61,14 +72,87 @@ class DocovidController extends AbstractFOSRestController
     /**
      * @Route("/contact", name="contact")
      */
-    public function contact()
+    public function contact(Request $request,\Swift_Mailer $mailer)
     {
-        return $this->render('docovid/contact.html.twig', [
-            'demandes' => $this->dr->findAll()
-        ]);
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $contact = $form->getData();
+
+            // On crée le message
+            $message = (new \Swift_Message('Nouveau contact'))
+                // On attribue l'expéditeur
+                ->setFrom($contact['email'])
+                // On attribue le destinataire
+                ->setTo('rabeimelek9@gmail.com')
+                // On crée le texte avec la vue
+                ->setBody(
+                    $this->renderView(
+                        'docovid/index.html.twig', compact('contact')
+                    ),
+                    'text/html'
+                )
+            ;
+            $mailer->send($message);
+
+            $this->addFlash('message', 'Votre message a été transmis, nous vous répondrons dans les meilleurs délais.'); // Permet un message flash de renvoi
+        }
+        return $this->render('docovid/contact.html.twig',['contactForm'=>$form->createView()]);
+    
     }
 
 
+      /**
+     * @Route("/search", name="search", methods={"GET","POST"} )
+     */
+    public function searchBar(Request $request){
+        
+        $entityManager = $this->getDoctrine()->getManager();
+        $query= $request->get('q');
+        $demandes = $entityManager->getRepository(Demande::class)->findDemandeByQuery($query);
+
+        if (!$demandes) {
+            $result['demandes']['error'] = "Pas de demandes avec ce matériel pour le moment";
+        } else {
+            $result['demandes'] = $this->getRealEntities($demandes);
+        }
+
+            return new Response(json_encode($result));
+
+    }
+
+    public function getRealEntities($demandes){
+        foreach ($demandes as $demandes){
+            $livraison = $demandes->getLivraison();
+          
+
+            //var_dump();
+            $realEntities[$demandes->getId()]= [
+
+                $demandes->getMateriel(),
+                $demandes->getQuantite(),
+                $demandes->getDateDemande(),
+                $demandes->getTempsDemande(),
+                $demandes->getMessage(),
+                $livraison->getNomReceveur(),
+                $livraison->getPrenomReceveur(),
+                $livraison->getTelephone(),
+                $livraison->getAdresse(),
+                $livraison->getVille(),
+                $livraison->getCite(),
+                $livraison->getCodePostal(),
+
+
+                
+
+
+                
+            ];
+
+        }
+        return $realEntities;
+    }
     /**********************REST APIS */
 
     /*****create new demande */
@@ -90,16 +174,20 @@ class DocovidController extends AbstractFOSRestController
 
         //create demande
         $demande = new Demande();
+        // e livraison tebda deja creer ba3d ta3mel creation mta3 demande w taffectilfa el livraison 
         $demande->setLivraison($livraison);
+        //edhouma asemi les champs mta3 l demande
         $demande->setMateriel($request->get('materiel'));
         $demande->setQuantite($request->get('quantite'));
         $demande->setDateDemande($request->get('date_demande'));
         $demande->setTempsDemande($request->get('temps_demande'));
-        
+        $demande->setMessage($request->get('message'));
+
+        //ba3d ypersisti fil base 
         $entityManager->persist($demande);
         $entityManager->flush();
 
-        
+        // w yconverti l json
         $formatted = $serializer->normalize($demande);
         var_dump($formatted);
         return new JsonResponse($formattedLivraison, $formatted);

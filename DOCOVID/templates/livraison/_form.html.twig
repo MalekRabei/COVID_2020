@@ -70,13 +70,19 @@
 	<h4>Terme et Condition d'utilisation</h4>
 	<div class="form-group">
 		<div class="checkboxes">
-			<label class="container_check">J'accepte <a href="#0">les termes et les conditions d'utilisation .</a>
+			<label class="container_check">J'accepte <a href="{{path('faq')}}">les termes et les conditions d'utilisation .</a>
 				<input type="checkbox">
 				<span class="checkmark"></span>
 			</label>
 		</div>
 	</div>
 </div>
-<hr>						
+<hr>
+						
     <button class="btn_1 full-width">{{ button_label|default('Confirmer') }}</button>
 {{ form_end(form) }}
+
+
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Reçoit{% endblock %}
+{% block title %}Contact{% endblock %}
 
 {% block body %}
 <body>
@@ -13,48 +13,9 @@
 	</div>
 	<!-- End Preload -->
     
-	<header class="header_sticky">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-6">
-					<div id="logo">
-						<a href="index.html" title="DOCOVID"><img src="img/logo.png" data-retina="true" alt="" width="163" height="36"></a>
-					</div>
-				</div>
-				<nav class="col-lg-9 col-6">
-					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
-					<ul id="top_access">
-						<li><a href="login.html"><i class="pe-7s-user"></i></a></li>
-						<li><a href="register-doctor.html"><i class="pe-7s-add-user"></i></a></li>
-					</ul>
-					<div class="main-menu">
-						<ul>
-							<li class="submenu">
-								<a href="index.html" >ACCUEIL</a>
-								
-							</li>
-							<li class="submenu">
-								<a href="#0" class="show-submenu">DONNES</a>
-								<ul>
-                                    <li><a href="#">Liste des offres</a></li>
-								</ul>
-							</li>
-							<li class="submenu">
-								<a href="#0" class="show-submenu">REÇOIS<i class="icon-down-open-mini"></i></a>
-								<ul>
-                                    <li><a href="#">Liste des demandes</a></li>
-                                    <li><a href="#">Postuler votre demande </a></li>
-                                	
-								</ul>
-							</li>
-						</ul>
-					</div>
-					<!-- /main-menu -->
-				</nav>
-			</div>
-		</div>
-		<!-- /container -->
-	</header>
+   {% block header %}
+	   {{ parent() }}
+	 {% endblock %}
 	<!-- /header -->
 	
 	<main>		
@@ -64,25 +25,17 @@
 					<div id="contact_info">
 						<h3>Contacts info</h3>
 						<p>
-							11 Fifth Ave - New York, US<br> + 61 (2) 8093 3400<br>
-							<a href="#">info@domain.com</a>
+							<a href="#"> </a>
 						</p>
-						<h4>Localisation</h4>
-						<form action="http://maps.google.com/maps" method="get" target="_blank">
-							<div class="form-group">
-								<input type="hidden" name="daddr" value="New York, NY 11430">
-								<!-- Write here your end point -->
-							</div>
-							<input type="submit" value="Get directions" class="btn_1 add_bottom_45">
-						</form>
+						
 						<ul>
 							<li><strong>Administration</strong>
-								<a href="tel://003823932342">0038 23932342</a><br><a href="tel://003823932342">admin@findoctor.com</a><br>
-								<small>Monday to Friday 9am - 7pm</small>
+								<a href="tel://003823932342">m.rabei@flagpass.com</a><br>
+								<small>Lundi à Vendredi 09:00 - 19:00</small>
 							</li>
 							<li><strong>General questions</strong>
-								<a href="tel://003823932342">0038 23932342</a><br><a href="tel://003823932342">questions@findoctor.com</a><br>
-								<p><small>Monday to Friday 9am - 7pm</small></p>
+								<a href="tel://003823932342">contact@flagpass.com</a><br>
+								<p><small>Lundi à Diamnche 09:00 - 16:00</small></p>
 							</li>
 						</ul>
 					</div>
@@ -96,41 +49,41 @@
 						</p>
 						<div>
 							<div id="message-contact"></div>
-							<form method="post" action="assets/contact.php" id="contactform">
+						{{form_start(contactForm)}}
 								<div class="row">
 									<div class="col-md-6 col-sm-6">
 										<div class="form-group">
-											<input type="text" class="form-control" id="name_contact" name="name_contact" placeholder="Prénom">
+						                            {{ form_widget(contactForm.prenom ,{'attr': {'class': '  form-control ',  'placeholder':'Prenom'}}) }}
 										</div>
 									</div>
 									<div class="col-md-6 col-sm-6">
 										<div class="form-group">
-											<input type="text" class="form-control" id="lastname_contact" name="lastname_contact" placeholder="Nom">
+						                            {{ form_widget(contactForm.nom ,{'attr': {'class': '  form-control ',  'placeholder':'Nom'}}) }}
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-6 col-sm-6">
 										<div class="form-group">
-											<input type="email" id="email_contact" name="email_contact" class="form-control" placeholder="Email">
+						                            {{ form_widget(contactForm.email ,{'attr': {'class': '  form-control ',  'placeholder':'Email'}}) }}
 										</div>
 									</div>
 									<div class="col-md-6 col-sm-6">
 										<div class="form-group">
-											<input type="text" id="phone_contact" name="phone_contact" class="form-control" placeholder="Numéro de Téléphone">
+						                            {{ form_widget(contactForm.telephone ,{'attr': {'class': '  form-control ',  'placeholder':'Telephone'}}) }}
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12">
 										<div class="form-group">
-											<textarea rows="5" id="message_contact" name="message_contact" class="form-control" style="height:100px;" placeholder="Votre message"></textarea>
+						                            {{ form_widget(contactForm.message ,{'attr': {'class': '  form-control ',  'placeholder':'Message'}}) }}
 										</div>
 									</div>
 								</div>
-								
-								<input type="submit" value="Envoyer" class="btn_1 add_top_20" id="submit-contact">
-							</form>
+													 {{ form_widget(contactForm.Envoyer ,{'attr': {'class': ' btn_1 add_top_20  '}}) }}
+
+							{{form_end(contactForm)}}
 						</div>
 						<!-- /col -->
 					</div>
@@ -143,72 +96,18 @@
 	</main>
 	<!-- /main -->
 	
-	<footer>
-		<div class="container margin_60_35">
-			<div class="row">
-				<div class="col-lg-6 col-md-12">
-					<p>
-						<a href="index.html" title="Findoctor">
-							<img src="img/logo.png" data-retina="true" alt="" width="163" height="36" class="img-fluid">
-						</a>
-					</p>
-				</div>
-				<div class="col-lg-3 col-md-4">
-					<h5>A propos </h5>
-					<ul class="links">
-						<li><a href="#0">A propos de nous</a></li>
-						<li><a href="#0">FAQ</a></li>
-						
-					</ul>
-				</div>
-				
-				<div class="col-lg-3 col-md-4">
-					<h5>Contact with Us</h5>
-					<ul class="contacts">
-						<li><a href="tel://61280932400"><i class="icon_mobile"></i> + 61 23 8093 3400</a></li>
-						<li><a href="mailto:info@findoctor.com"><i class="icon_mail_alt"></i> help@docovid.com</a></li>
-					</ul>
-					<div class="follow_us">
-						<h5>Suivez nous</h5>
-						<ul>
-							<li><a href="#0"><i class="social_facebook"></i></a></li>
-							<li><a href="#0"><i class="social_twitter"></i></a></li>
-							<li><a href="#0"><i class="social_linkedin"></i></a></li>
-							<li><a href="#0"><i class="social_instagram"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<!--/row-->
-			<hr>
-			<div class="row">
-				<div class="col-md-8">
-					<ul id="additional_links">
-						<li><a href="#0">Terms and conditions</a></li>
-						<li><a href="#0">Privacy</a></li>
-					</ul>
-				</div>
-				<div class="col-md-4">
-					<div id="copy">Made with <img src="img/health.png"> © 2020 Malek Rabei & Iheb Farhani</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+	{% block footer %}
+	   {{ parent() }}
+	 {% endblock %}
 	<!--/footer-->
 
 	<div id="toTop"></div>
 	<!-- Back to top button -->
 
 	<!-- COMMON SCRIPTS -->
-	<script src="js/jquery-2.2.4.min.js"></script>
-	<script src="js/common_scripts.min.js"></script>
-	<script src="js/functions.js"></script>
-	
-	<!-- SPECIFIC SCRIPTS -->
-	<script src="assets/validate.js"></script>
-	<script src="http://maps.googleapis.com/maps/api/js"></script>
-	<script src="js/mapmarker.jquery.js"></script>
-	<script src="js/mapmarker_contacts_func.js"></script>
+	{% block javascripts %}
+	   {{ parent() }}
+	 {% endblock %}
      
 </body>
 {% endblock %}

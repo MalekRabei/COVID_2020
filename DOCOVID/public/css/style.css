@@ -5021,10 +5021,10 @@ ul.bullets li:before {
 }
 
 /*-------- 3.8 Date dropper/time dropper --------*/
-.form-control:disabled#booking_date,
-.form-control[readonly]#booking_date,
-.form-control:disabled#booking_time,
-.form-control[readonly]#booking_time {
+.form-control:disabled#demande_date_demande,
+.form-control[readonly]#demande_date_demande,
+.form-control:disabled#demande_temps_demande,
+.form-control[readonly]#demande_temps_demande{
   background-color: #fff;
   opacity: 1;
 }

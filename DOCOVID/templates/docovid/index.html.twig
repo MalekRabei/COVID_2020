@@ -26,20 +26,17 @@
 				<p>
 					Trouve ceux qui ont besoins du matériel que tu possèdes 
 				</p>
-				<form method="post" action="list.html">
-					<div id="custom-search-input">
-						<div class="input-group">
-							<input type="text" class=" search-query" placeholder="Ex. Masque ....">
-							<input type="submit" class="btn_search" value="Chercher">
-						</div>
+				
 						
-					</div>
-				</form>
+					<p class="text-center"><a href="{{path('demande_index')}}" class="btn_1 medium">Chercher maintenant!</a></p>
+
+						
+
 			</div>
 		</div>
 		<!-- /Hero -->
 
-		<div class="container margin_120_95">
+		<div class="container margin_120_95" >
 			<div class="main_title">
 				<h2>Découvrez  <strong>DOCOVID</strong> !</h2>
 				<p>DOCOVID est un service GRATUIT pour aider le personnel médical dans l'exercice de ses fonctions..</p>
@@ -70,7 +67,7 @@
 				
 			</div>
 			<!-- /row -->
-			<p class="text-center"><a href="list.html" class="btn_1 medium">Rejoignez Nous !</a></p>
+			<p class="text-center"><a href="{{path('fos_user_registration_register')}}" class="btn_1 medium">Rejoignez Nous !</a></p>
 
 		</div>
 		<!-- /container -->
@@ -114,9 +111,7 @@
 
 	<div id="toTop"></div>
 	<!-- Back to top button -->
-
-
-</body>
+	</body>
 
 </html>
 {% endblock %}

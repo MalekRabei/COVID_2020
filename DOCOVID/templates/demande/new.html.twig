@@ -71,8 +71,9 @@
 
 	<div id="toTop"></div>
 	<!-- Back to top button -->
+	 {% block javascripts %}
+	   {{ parent() }}
+	 {% endblock %}
 
-     
-</body>
-</html>
 {% endblock %}
+

@@ -10,10 +10,15 @@ use App\Entity\Livraison;
 use App\Form\LivraisonType;
 use App\Repository\LivraisonRepository;
 
+use App\Entity\User;
+use App\Form\UserType;
+use App\Repository\UserRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Date;
 
 
 use FOS\RestBundle\Controller\AbstractFOSRestController;
@@ -34,20 +39,43 @@ class DemandeController extends AbstractFOSRestController
     }
 
     /**
+     * @Route("/userList", name="demande_user", methods={"GET"})
+     */
+    public function userList(DemandeRepository $demandeRepository): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $usr= $this->get('security.token_storage')->getToken()->getUser()->getId();
+        //var_dump($usr);
+        return $this->render('demande/user.html.twig', [
+            'demandes' => $demandeRepository->findDemandeByUser($usr),
+        ]);
+    }
+
+
+    /**
      * @Route("/new", name="demande_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
+   
 
         //inialize livraison
         $entityManager = $this->getDoctrine()->getManager();
         $livraison = new Livraison();
         $entityManager->persist($livraison);
         $entityManager->flush();
-
+        //get current user
+        $usr= $this->get('security.token_storage')->getToken()->getUser()->getId();
+        var_dump($usr);
+        $user=$entityManager->getRepository(User::class)->find($usr);
         //create demande
         $demande = new Demande();
         $demande->setLivraison($livraison);
+        $currentdate= new \DateTime('now');
+        $demande->setDateDemande($currentdate);
+        $demande->setTempsDemande($currentdate);
+        $demande->setIdUser($user);
         $form = $this->createForm(DemandeType::class, $demande);
         $form->handleRequest($request);
 
