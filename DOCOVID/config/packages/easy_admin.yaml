@@ -5,9 +5,19 @@ easy_admin:
         # List the entity class name you want to manage
        Demande:
            class: App\Entity\Demande
-
+           form:
+                fields:
+                    - materiel
+                    - quantite
+                    - dateDemande
+                    - tempsDemande
+                    - message
+                    - { property: 'livraison', label: 'Livraison'  ,type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\Livraison' } }
+                    
        Livraison:
             class: App\Entity\Livraison
+           
+
 
        User: 
             display_name: true
