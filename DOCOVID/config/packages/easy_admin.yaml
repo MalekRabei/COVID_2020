@@ -37,7 +37,7 @@ easy_admin:
     site_name: 'DOCOVID'
     
     design:
-        menu:
+        menu: 
             - {label: "Entités"}
             - label: "Demande"
               children:

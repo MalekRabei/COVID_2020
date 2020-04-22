@@ -67,7 +67,7 @@ class DemandeController extends AbstractFOSRestController
         $entityManager->flush();
         //get current user
         $usr= $this->get('security.token_storage')->getToken()->getUser()->getId();
-        var_dump($usr);
+       // var_dump($usr);
         $user=$entityManager->getRepository(User::class)->find($usr);
         //create demande
         $demande = new Demande();
@@ -84,7 +84,7 @@ class DemandeController extends AbstractFOSRestController
             $entityManager->persist($demande);
             $entityManager->flush();
 
-            return $this->redirectToRoute('demande_index');
+            return $this->redirectToRoute('demande_user');
         }
 
         return $this->render('demande/new.html.twig', [
