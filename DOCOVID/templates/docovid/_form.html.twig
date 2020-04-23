@@ -1,0 +1,13 @@
+{{ form_start(form   ,  {'method': 'get', 'action': path('demande_index')})  }}
+
+
+<div id="custom-search-input">
+
+<div class="input-group">
+{{form_widget(form.query , {'attr': {'class': ' search-query ' , 'placeholder':'Ex. Masque ....'}} )}}
+
+
+<input  type="submit" class="btn btn_search" value="Chercher">
+</div>
+</div>
+{{ form_end(form) }}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Find easily a doctor and book online an appointment">
+	<meta name="author" content="Ansonika">
+	<title>DOCOVID - Trouve le matériel qui te manque</title>
+
+	<!-- Favicons-->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+
+	<!-- BASE CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/menu.css" rel="stylesheet">
+	<link href="css/vendors.css" rel="stylesheet">
+	<link href="css/icon_fonts/css/all_icons_min.css" rel="stylesheet">
+    
+	<!-- YOUR CUSTOM CSS -->
+	<link href="css/custom.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+    
+	<header class="header_sticky">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-6">
+					<div id="logo">
+						<a href="index.html" title="DOCOVID"><img src="img/logo.png" data-retina="true" alt="" width="163" height="36"></a>
+					</div>
+				</div>
+				<nav class="col-lg-9 col-6">
+					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
+					<ul id="top_access">
+						<li><a href="login.html"><i class="pe-7s-user"></i></a></li>
+						<li><a href="register-doctor.html"><i class="pe-7s-add-user"></i></a></li>
+					</ul>
+					<div class="main-menu">
+						<ul>
+							<li class="submenu">
+								<a href="index.html" >ACCUEIL</a>
+								
+							</li>
+							<li class="submenu">
+								<a href="#0" class="show-submenu">DONNES</a>
+								<ul>
+                                    <li><a href="#">Liste des offres</a></li>
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="#0" class="show-submenu">REÇOIS<i class="icon-down-open-mini"></i></a>
+								<ul>
+                                    <li><a href="#">Liste des demandes</a></li>
+                                    <li><a href="#">Postuler votre demande </a></li>
+                                	
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!-- /main-menu -->
+				</nav>
+			</div>
+		</div>
+		<!-- /container -->
+	</header>
+	<!-- /header -->
+	
+	
+	<main>
+		<div id="breadcrumb">
+			<div class="container">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Category</a></li>
+					<li>Page active</li>
+				</ul>
+			</div>
+		</div>
+		<!-- /breadcrumb -->
+
+		<div class="container margin_60">
+			<div class="row">
+				<div class="col-xl-12 col-lg-12">
+					
+					<div class="box_general_3 booking">
+						<div class="title">
+							<h3>Recevez du matériel</h3>
+							<small>et protégez-vous </small>
+						</div>
+						<div id="message-booking"></div>
+							<form method="post" action="assets/booking.php" id="booking">
+							<input type="hidden" value="Dr. Julia Jhones" name="doctor_name_booking" id="doctor_name_booking">
+							<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<select class="form-control" name="materiel" id="materiel">
+												<option value="">Choisir type matériel</option>
+												<option value="General visit">Masque Chirugical</option>
+												<option value="Cardiothoracic Radiology">Masque FFP2</option>
+												<option value="Abdominal Radiology">Gants à usage unique</option>
+												<option value="General visit">Blouse</option>
+												<option value="Cardiothoracic Radiology">Lunettes de protection</option>
+												<option value="Abdominal Radiology">Gel Hydroalcoolique</option>
+												<option value="Abdominal Radiology">Charlottes</option>
+
+											</select>
+										</div>
+									</div>
+								
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Quantité" name="quantite" id="quantite">
+									</div>
+								</div>
+							</div>
+							
+							<!-- /row -->
+							<div class="row">
+								<div class="col-6">
+									<div class="form-group">
+										<input class="form-control" type="text" id="date_demande" name="date_demande" data-lang="en" data-min-year="2020" data-max-year="2021" data-disabled-days="10/17/2020,11/18/2020">
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="form-group">
+										<input class="form-control" type="text" id="temps_demande" name="temps_demande">
+									</div>
+								</div>
+							</div>
+							<!-- /row -->
+							
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<textarea rows="5" id="booking_message" name="booking_message" class="form-control" style="height:80px;" placeholder="Message (optionnel)"></textarea>
+									</div>
+								</div>
+							</div>
+							<!-- /row-->
+							<hr>
+							<div style="position:relative;"><input type="submit" class="btn_1 full-width" value="Confirmer" id="submit-booking"></div>
+						</form>
+					</div>
+					<!-- /box_general -->
+
+					
+				</div>
+				<!-- /col -->
+			
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</main>
+	<!-- /main -->
+	
+	<footer>
+		<div class="container margin_60_35">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>
+						<a href="index.html" title="Findoctor">
+							<img src="img/logo.png" data-retina="true" alt="" width="163" height="36" class="img-fluid">
+						</a>
+					</p>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<h5>A propos </h5>
+					<ul class="links">
+						<li><a href="#0">A propos de nous</a></li>
+						<li><a href="#0">FAQ</a></li>
+						
+					</ul>
+				</div>
+				
+				<div class="col-lg-3 col-md-4">
+					<h5>Contact with Us</h5>
+					<ul class="contacts">
+						<li><a href="tel://61280932400"><i class="icon_mobile"></i> + 61 23 8093 3400</a></li>
+						<li><a href="mailto:info@findoctor.com"><i class="icon_mail_alt"></i> help@docovid.com</a></li>
+					</ul>
+					<div class="follow_us">
+						<h5>Suivez nous</h5>
+						<ul>
+							<li><a href="#0"><i class="social_facebook"></i></a></li>
+							<li><a href="#0"><i class="social_twitter"></i></a></li>
+							<li><a href="#0"><i class="social_linkedin"></i></a></li>
+							<li><a href="#0"><i class="social_instagram"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--/row-->
+			<hr>
+			<div class="row">
+				<div class="col-md-8">
+					<ul id="additional_links">
+						<li><a href="#0">Terms and conditions</a></li>
+						<li><a href="#0">Privacy</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<div id="copy">Made with <img src="img/health.png"> © 2020 Malek Rabei & Iheb Farhani</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--/footer-->
+
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+
+	<!-- COMMON SCRIPTS -->
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/common_scripts.min.js"></script>
+	<script src="js/functions.js"></script>
+	
+	<!-- SPECIFIC SCRIPTS -->
+	<script src="assets/validate.js"></script>
+     
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Find easily a doctor and book online an appointment">
+	<meta name="author" content="Ansonika">
+	<title>DOCOVID - Trouve le matériel qui te manque</title>
+
+	<!-- Favicons-->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+    
+	<!-- BASE CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/menu.css" rel="stylesheet">
+	<link href="css/vendors.css" rel="stylesheet">
+	<link href="css/icon_fonts/css/all_icons_min.css" rel="stylesheet">
+    
+	<!-- YOUR CUSTOM CSS -->
+	<link href="css/custom.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+    
+	<header class="header_sticky">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-6">
+					<div id="logo">
+						<a href="index.html" title="DOCOVID"><img src="img/logo.png" data-retina="true" alt="" width="163" height="36"></a>
+					</div>
+				</div>
+				<nav class="col-lg-9 col-6">
+					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
+					<ul id="top_access">
+						<li><a href="login.html"><i class="pe-7s-user"></i></a></li>
+						<li><a href="register-doctor.html"><i class="pe-7s-add-user"></i></a></li>
+					</ul>
+					<div class="main-menu">
+						<ul>
+							<li class="submenu">
+								<a href="index.html" >ACCUEIL</a>
+								
+							</li>
+							<li class="submenu">
+								<a href="#0" class="show-submenu">DONNES</a>
+								<ul>
+                                    <li><a href="#">Liste des offres</a></li>
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="#0" class="show-submenu">REÇOIS<i class="icon-down-open-mini"></i></a>
+								<ul>
+                                    <li><a href="#">Liste des demandes</a></li>
+                                    <li><a href="#">Postuler votre demande </a></li>
+                                	
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!-- /main-menu -->
+				</nav>
+			</div>
+		</div>
+		<!-- /container -->
+	</header>
+	<!-- /header -->
+	
+	<main>
+		<div id="hero_register">
+			<div class="container margin_120_95">			
+				<div class="row">
+					<div class="col-lg-6">
+						<h1>Il est temps pour combattre le CORONA Virus ensemble !</h1>
+						<p class="lead"> DOCOVID est un service GRATUIT pour aider le personnel médical dans l'exercice de ses fonctions. <br/><br/>
+
+							 Si vous detenez des masques, blouses, etc,  DOCOVID est une application qui vous met 
+							 en lien avec les soignants ,en manque de materiel autour de vous. <br/> <br/>
+							 Les citoyens vous contactent pour vous donner le matériel qu'il vous manque. <br/>
+							 <br/>
+							 Un seul masque vaut mille MERCI. <br/><br>
+							  
+						<div class="box_feat_2">
+							<i class="pe-7s-map-2"></i>
+							<h3>Les citoyens vont vous aider !</h3>
+							<p>Les citoyens les plus proches de votre localisation vont se déplacer pour vous fournir le matériel.</p>
+						</div>
+						
+						<div class="box_feat_2">
+							<i class="pe-7s-phone"></i>
+							<h3>Disponible via Mobile</h3>
+							<p>Vous pouvez beneficier des mêmes services via une application mobile.</p>
+						</div>
+					</div>
+					<!-- /col -->
+					<div class="col-lg-5 ml-auto">
+						<div class="box_form">
+							<div id="message-register"></div>
+							<form method="post" action="assets/register_doctor.php" id="register_doctor">
+								<div class="row">
+									<div class="col-md-6 ">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Prénom" name="name_register" id="name_register">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Nom" name="lastname_register" id="lastname_register">
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Profession" name="specialization" id="specialization">
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Cité" name="city_register" id="city_register">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<select class="form-control" name="country_register" id="country_register">
+												<option value="">Ville</option>
+												<option value="Paris">Paris</option>
+												<option value="Marseille">Marseille</option>
+												<option value="Lille">Lille</option>
+												<option value="Nice">Nice</option>
+												<option value="Bordeaux">Bordeaux</option>
+												<option value="Strasbourg">Strasbourg</option>
+												<option value="Montpellier">Montpellier</option>
+												<option value="Lyon">Lyon</option>
+												<option value="Toulouse">Toulouse</option>
+												<option value="Rennes">Rennes</option>
+												<option value="Lille">Nantes</option>
+												<option value="Grenoble">Grenoble</option>
+												<option value="Angers">Angers</option>
+												<option value="Le Havre">Le Havre</option>
+												<option value="Nîmes">Nîmes</option>
+												<option value="Toulon">Toulon</option>
+												<option value="Nancy">Nancy</option>
+												<option value="Reims">Reims</option>
+												<option value="Brest">Brest</option>
+												<option value="AixEnProvence">Aix en Provence</option>
+												<option value="Saint-Etienne">Saint Etienne</option>
+												<option value="Dijon">Dijon</option>
+												<option value="Le Mans">Le Mans</option>
+												<option value="Besançon">Besançon</option>
+												<option value="Limoges">Limoges</option>
+												<option value="Orléans">Orléans</option>
+												<option value="Metz">Metz</option>
+												<option value="Tours">Tours</option>
+												<option value="Clermont-Ferrand">Clermont-Ferrand</option>
+												<option value="Rouen">Rouen</option>
+												<option value="Avignon">Avignon</option>
+												<option value="Amiens">Amiens</option>
+												<option value="Perpignan">Perpignan</option>
+												<option value="Mulhouse">Mulhouse</option>
+												<option value="Dunkerque">Dunkerque</option>
+												<option value="GrandPoitiers">GrandPoitiers</option>
+												<option value="Annecy">Annecy</option>
+												<option value="LaRochelle">La Rochelle</option>
+												<option value="SaintDenis">SaintDenis</option>
+												<option value="Villeurbanne">Villeurbanne</option>
+												<option value="Nanterre">Nanterre</option>
+												<option value="Créteil">Créteil</option>
+												<option value="Roubaix">Argenteuil</option>
+												<option value="VitrySurSein">Vitry sur Seine</option>
+												<option value="Tourcoing">Tourcoing</option>
+												<option value="Valenciennes">Valenciennes</option>
+												<option value="Bérziers">Bérziers</option>
+												<option value="Colmar">Colmar</option>
+												<option value="Pau">Pau</option>
+												
+											</select>
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Adresse" name="address_register" id="address_register">
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<input type="text" class="form-control" placeholder="Téléphone" name="mobile_register" id="mobile_register">
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<input type="email" class="form-control" placeholder="Adresse email" name="email_register" id="email_register">
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<input type="text" id="verify_register" class="form-control" placeholder="Verification: 3 + 1 =?">
+										</div>
+									</div>
+								</div>
+								<!-- /row -->
+								<div><input type="submit" class="btn_1" value="S'inscrire" id="submit-register"></div>
+							</form>
+						</div>
+						<!-- /box_form -->
+					</div>
+					<!-- /col -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /hero_register -->
+	</main>
+	<!-- /main -->
+	
+	<footer>
+		<div class="container margin_60_35">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>
+						<a href="index.html" title="Findoctor">
+							<img src="img/logo.png" data-retina="true" alt="" width="163" height="36" class="img-fluid">
+						</a>
+					</p>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<h5>A propos </h5>
+					<ul class="links">
+						<li><a href="#0">A propos de nous</a></li>
+						<li><a href="#0">FAQ</a></li>
+						
+					</ul>
+				</div>
+				
+				<div class="col-lg-3 col-md-4">
+					<h5>Contact with Us</h5>
+					<ul class="contacts">
+						<li><a href="tel://61280932400"><i class="icon_mobile"></i> + 61 23 8093 3400</a></li>
+						<li><a href="mailto:info@findoctor.com"><i class="icon_mail_alt"></i> help@docovid.com</a></li>
+					</ul>
+					<div class="follow_us">
+						<h5>Suivez nous</h5>
+						<ul>
+							<li><a href="#0"><i class="social_facebook"></i></a></li>
+							<li><a href="#0"><i class="social_twitter"></i></a></li>
+							<li><a href="#0"><i class="social_linkedin"></i></a></li>
+							<li><a href="#0"><i class="social_instagram"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--/row-->
+			<hr>
+			<div class="row">
+				<div class="col-md-8">
+					<ul id="additional_links">
+						<li><a href="#0">Terms and conditions</a></li>
+						<li><a href="#0">Privacy</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<div id="copy">Made with <img src="img/health.png"> © 2020 Malek Rabei & Iheb Farhani</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--/footer-->
+
+
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+
+	<!-- COMMON SCRIPTS -->
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/common_scripts.min.js"></script>
+	<script src="js/functions.js"></script>
+	
+	<!-- SPECIFIC SCRIPTS -->
+	<script src="assets/validate.js"></script>
+
+</body>
+</html>
