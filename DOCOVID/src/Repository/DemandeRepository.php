@@ -85,8 +85,8 @@ class DemandeRepository extends ServiceEntityRepository
             where l.id= $id ");
 
         $res= $query->getResult();
-
-        
+        return $res;
+         
     }
 
     public function findDemandeByQuery($str){

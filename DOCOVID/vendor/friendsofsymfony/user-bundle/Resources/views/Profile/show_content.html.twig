@@ -1,0 +1,47 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+                <div id="section_1">
+						<div class="box_general_3">
+							<div class="profile">
+								<div class="row">
+									<div class="col-lg-5 col-md-4">
+										<figure>
+											<img src="http://via.placeholder.com/565x565.jpg" alt="" class="img-fluid">
+										</figure>
+									</div>
+                         
+									<div class="col-lg-7 col-md-8 ">
+										<small><p> {{ user.profession }}</p></small>
+                                        <h1>{{ 'profile.show.username'|trans }} : {{ user.username }}</h1>
+                                        <p>{{ 'profile.show.email'|trans }} : {{ user.email }}</p>
+                                        <ul class="contacts">
+											<li>
+												<h6>Informations</h6>
+										<li>Nom : {{ user.nom }}</li>
+                                        <li>Prénom : {{ user.prenom }}</li>
+											</li>
+
+											<li>
+												<h6>Role</h6> 
+                                             {{ user.roles[0] }}
+
+										</ul>										
+									</div>
+								</div>
+							</div>
+							
+							<hr>
+						 <div >
+                        <!--a class="text-left btn_1" href="{{ path('fos_user_profile_edit') }}" >Paramètres</a-->
+                     
+                        <a  class="text-right btn_1" href="{{ path('fos_user_change_password') }}"> Changer le mot de passe</a>
+                        </div>
+                       
+
+								<!-- /row-->
+							</div>
+							<!-- /wrapper indent -->
+						</div>
+					</div>
+					<!-- /section_2 -->

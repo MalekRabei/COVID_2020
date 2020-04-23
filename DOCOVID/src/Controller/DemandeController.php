@@ -93,11 +93,11 @@ class DemandeController extends AbstractFOSRestController
         ]);
     }
     /**
-     * @Route("/{id}/livraison", name="livraison", methods={"GET","POST"}  , requirements={"id":"\d+"})
+     * @Route("/{id}/livraison", name="livraison", methods={"GET","POST"})
      */
     public function livraison(Request $request, $id) : Response
     {
-
+        
         $entityManager = $this->getDoctrine()->getManager();
         //get livraison
         $livraisonArray = $entityManager->getRepository(Livraison::class)->findLivraison($id);

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Se connecter{% endblock %}
+{% block body %}
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+    
+
+	
+
+{% block header %}
+	{{ parent() }}
+{% endblock %}
+	
+	<main>
+		<div class="bg_color_2">
+			<div class="container margin_60_35">
+				<div id="login-2">
+					<h1>Connectez-vous à DOCOVID!</h1>
+                        {% block fos_user_content %}
+                            {{ include('@FOSUser/Security/login_content.html.twig') }}
+                        {% endblock fos_user_content %}
+
+                    <p class="text-center link_bright">Vous n'avez pas encore un compte? <a href="{{path('fos_user_registration_register')}}"><strong>Inscrivez-vous  !</strong></a></p>
+				</div>
+				<!-- /login -->
+			</div>
+		</div>
+	</main>
+
+{% block footer %}
+	{{ parent() }}
+{% endblock %}
+{% endblock %}
+
+

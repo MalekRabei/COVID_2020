@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'inscrire{% endblock %}
+
+
+
+{% block body %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+<body>
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+    
+	{% block header %}
+	   {{ parent() }}
+	 {% endblock %}
+	<!-- /header -->
+	
+	<main>
+		<div id="hero_register">
+			<div class="container margin_120_95">			
+				<div class="row">
+					<div class="col-lg-6">
+						<h1>Il est temps pour combattre le CORONA Virus ensemble !</h1>
+						<p class="lead"> DOCOVID est un service GRATUIT pour aider le personnel médical dans l'exercice de ses fonctions. <br/><br/>
+
+							 Si vous detenez des masques, blouses, etc,  DOCOVID est une application qui vous met 
+							 en lien avec les soignants ,en manque de materiel autour de vous. <br/> <br/>
+							 Les citoyens vous contactent pour vous donner le matériel qu'il vous manque. <br/>
+							 <br/>
+							 Un seul masque vaut mille MERCI. <br/><br>
+							  
+						<div class="box_feat_2">
+							<i class="pe-7s-map-2"></i>
+							<h3>Les citoyens vont vous aider !</h3>
+							<p>Les citoyens les plus proches de votre localisation vont se déplacer pour vous fournir le matériel.</p>
+						</div>
+						
+						<div class="box_feat_2">
+							<i class="pe-7s-phone"></i>
+							<h3>Disponible via Mobile</h3>
+							<p>Vous pouvez beneficier des mêmes services via une application mobile.</p>
+						</div>
+					</div>
+					<!-- /col -->
+					<div class="col-lg-5 ml-auto">
+						<div class="box_form">
+							<div id="message-register"></div>
+                            
+                        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                        <div class="row">
+                                <div class="col-md-12 ">
+                                    <div class="form-group">
+                            {{ form_widget(form.username ,{'attr': {'class': '  form-control ',  'placeholder':'Pseudo'}}) }}
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <div class="form-group">
+                            {{ form_widget(form.plainPassword.first ,{'attr': {'class': 'form-control ',  'placeholder':'mot de passe'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <div class="form-group">
+                            {{ form_widget(form.plainPassword.second ,{'attr': {'class': 'form-control ',  'placeholder':'confirmer mot de passe'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+							 <div class="row">
+                                <div class="col-md-6 ">
+                                    <div class="form-group">
+                            {{ form_widget(form.nom ,{'attr': {'class': '  form-control ',  'placeholder':'Nom '}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <div class="form-group">
+                            {{ form_widget(form.prenom ,{'attr': {'class': 'form-control ',  'placeholder':'Prénom'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+
+							<div class="row">
+                                <div class="col-md-12 ">
+                                    <div class="form-group">
+                            {{ form_widget(form.profession ,{'attr': {'class': '  form-control ',  'placeholder':'Profession'}}) }}
+                                    </div>
+                                </div>
+                                
+                            </div>
+						<div class="row">
+							<div class="col-md-12 ">
+                                    <div class="form-group">
+                            {{ form_widget(form.email ,{'attr': {'class': 'form-control ',  'placeholder':'Adresse email'}}) }}
+                                    </div>
+                                </div>
+						</div>
+                            <div>
+                                <input class="btn_1" type="submit" value="{{ 'registration.submit'|trans }}" />
+                            </div>
+                        {{ form_end(form) }}
+
+							
+						</div>
+						<!-- /box_form -->
+					</div>
+					<!-- /col -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /hero_register -->
+	</main>
+	<!-- /main -->
+	
+	{% block footer %}
+	   {{ parent() }}
+	 {% endblock %}
+	<!--/footer-->
+
+
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+
+	<!-- COMMON SCRIPTS -->
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/common_scripts.min.js"></script>
+	<script src="js/functions.js"></script>
+	
+	<!-- SPECIFIC SCRIPTS -->
+	<script src="assets/validate.js"></script>
+
+</body>
+{% endblock %}
