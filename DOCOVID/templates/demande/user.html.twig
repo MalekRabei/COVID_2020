@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste de vos demandes{% endblock %}
+{% block title %}DOCOVID - Liste de vos demandes{% endblock %}
 
 {% block body %}
 <body>
@@ -91,7 +91,7 @@
 						<ul>
 							
 							<li><a href="{{ path('livraison', {'id': demande.livraison.id}) }}">Livraison</a></li>
-                            <!--li><a href="{{ path('demande_edit', {'id': demande.id}) }}">Modifier</a></li-->
+                            <li><a href="{{ path('demande_edit', {'id': demande.id}) }}">Modifier</a></li>
 						</ul>
 					</div>
         {% endfor %}

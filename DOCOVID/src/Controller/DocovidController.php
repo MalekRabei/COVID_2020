@@ -60,7 +60,7 @@ class DocovidController extends AbstractFOSRestController
         ]);
     }
     /**
-     * @Route("/faq", name="faq")
+     * @Route("/cgu", name="cgu")
      */
     public function faq()
     {
