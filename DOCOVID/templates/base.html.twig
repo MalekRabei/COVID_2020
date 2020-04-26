@@ -41,11 +41,13 @@
 			<div class="row">
 				<div class="col-lg-3 col-6">
 					<div id="logo">
-						<a href="{{ path('apropos') }}" title="DOCOVID"><img src={{ asset('img/logo.png')}} data-retina="true" alt="" width="163" height="36"></a>
+						<a href="{{path('index')}}" title="DOCOVID"><img src={{ asset('img/logo.png')}} data-retina="true" alt="" width="163" height="36"></a>
 					</div>
 				</div>
 				<nav class="col-lg-9 col-6">
-					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
+					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0">
+					<span>Menu mobile</span>
+					</a>
 					<ul id="top_access">
 					 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 					
@@ -74,18 +76,22 @@
 								
 							</li>
 							<li class="submenu">
-								<a href="" class="show-submenu">DONNES</a>
+								<a href="" class="show-submenu">DONNEZ</a>
 								<ul>
-                                    <li><a href="{{path('demande_index')}}">Liste des offres</a></li>
+                                    <li><a href="{{path('demande_index')}}">Liste des demandes</a></li>
 								</ul>
 							</li>
 							<li class="submenu">
-								<a href="#0" class="show-submenu">REÇOIS<i class="icon-down-open-mini"></i></a>
+								<a href="#0" class="show-submenu">RECEVEZ<i class="icon-down-open-mini"></i></a>
 								<ul>
-                                    <li><a href="{{path('demande_index')}}">Liste des demandes</a></li>
-                                    <li><a href="{{path('demande_new')}}">Postuler votre demande </a></li>
+								    <li><a href="{{path('demande_new')}}">Déposez votre demande </a></li>
+                                    <li><a href="{{path('demande_user')}}">Liste de vos demandes</a></li>
                                 	
 								</ul>
+							</li>
+							<li class="submenu">
+								<a href="{{path('apropos')}}" >A PROPOS</a>
+								
 							</li>
 
 						</ul>
@@ -118,14 +124,12 @@
 				</div>
 				
 				<div class="col-lg-3 col-md-4">
-					<h5>Contact with Us</h5>
+					<h5>Contactez Nous</h5>
 					<ul class="contacts">
 						<li><a href="mailto:contact@flagpass.com"><i class="icon_mail_alt"></i>contact@flagpass.com</a></li>
-						<li><a href="mailto:m.rabei@flagpass.com"><i class="icon_mail_alt"></i>m.rabei@flagpass.com</a></li>
-
 					</ul>
 					<div class="follow_us">
-						<h5>Suivez nous</h5>
+						<h5>Suivez Nous</h5>
 						<ul>
 							<li><a href="http:\\www.facebook.com/docovid.fr"><i class="social_facebook"></i></a></li>
 							<li><a href="http:\\www.instagram.com/docovid.fr"><i class="social_instagram"></i></a></li>

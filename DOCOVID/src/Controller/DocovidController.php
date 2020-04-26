@@ -125,7 +125,6 @@ class DocovidController extends AbstractFOSRestController
     public function getRealEntities($demandes){
         foreach ($demandes as $demandes){
             $livraison = $demandes->getLivraison();
-          
 
             //var_dump();
             $realEntities[$demandes->getId()]= [
@@ -142,7 +141,7 @@ class DocovidController extends AbstractFOSRestController
                 $livraison->getVille(),
                 $livraison->getCite(),
                 $livraison->getCodePostal(),
-
+                $demandes->getId(),
 
                 
 

@@ -23,6 +23,9 @@ use Symfony\Component\Validator\Constraints\Date;
 
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 
+// Include paginator interface
+use Knp\Component\Pager\PaginatorInterface;
+
 /**
  * @Route("/demande")
  */
@@ -31,24 +34,55 @@ class DemandeController extends AbstractFOSRestController
     /**
      * @Route("/list", name="demande_index", methods={"GET"})
      */
-    public function index(DemandeRepository $demandeRepository): Response
+    public function index(DemandeRepository $demandeRepository,PaginatorInterface $paginator, Request $request): Response
     {
+
+        $alldemandes = $demandeRepository->findAllDemandes();
+        // Paginate the results of the query
+        
+        $demandes = $paginator->paginate(
+            // Doctrine Query, not results
+            $alldemandes,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            4
+        );
+        $demandes->setCustomParameters([
+            'position' => 'centered',
+            'size' => 'large',
+            'rounded' => true,
+        ]);
         return $this->render('demande/index.html.twig', [
-            'demandes' => $demandeRepository->findAllDemandes(),
+            'demandes' => $demandes,
         ]);
     }
 
     /**
      * @Route("/userList", name="demande_user", methods={"GET"})
      */
-    public function userList(DemandeRepository $demandeRepository): Response
+    public function userList(DemandeRepository $demandeRepository , PaginatorInterface $paginator, Request $request): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
 
         $usr= $this->get('security.token_storage')->getToken()->getUser()->getId();
+        $user=$entityManager->getRepository(User::class)->find($usr);
+
+        $alldemandes = $demandeRepository->findDemandeByUser($usr);
+        // Paginate the results of the query
+        $demandes = $paginator->paginate(
+            // Doctrine Query, not results
+            $alldemandes,
+            // Define the page parameter
+            $request->query->getInt('page', 1),
+            // Items per page
+            5
+        );
+
         //var_dump($usr);
         return $this->render('demande/user.html.twig', [
-            'demandes' => $demandeRepository->findDemandeByUser($usr),
+            'demandes' => $demandes,
+            'user' =>  $user
         ]);
     }
 
