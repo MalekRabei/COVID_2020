@@ -41,20 +41,19 @@
 			<div class="row">
 				<div class="col-lg-3 col-6">
 					<div id="logo">
-						<a href="{{path('index')}}" title="DOCOVID"><img src={{ asset('img/logo.png')}} data-retina="true" alt="" width="163" height="36"></a>
+						<a href="{{path('index')}}" title="DOCOVID"><img src={{ asset('img/logo.png')}} data-retina="true" alt="" width="170" height="70"></a>
 					</div>
 				</div>
 				<nav class="col-lg-9 col-6">
 					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0">
 					<span>Menu mobile</span>
 					</a>
-					<ul id="top_access">
+					<ul id="top_access" style="padding:10px">
 					 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 					
                     
-					<em class="fa fa-power-off">&nbsp;</em>
-                           <li> <a   href="{{ path('fos_user_profile_show') }}"><center><i class="pe-7s-user"></i><br/>
-							       {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </center></a>
+                           <li> <a   href="{{ path('fos_user_profile_show') }}">
+							       {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</a>
 							</li>
 						   <li> <a href="{{ path('fos_user_security_logout') }}" target="_blank"
                                class="btn btn-label btn-label-brand btn-sm btn-bold">
@@ -63,29 +62,32 @@
 
 								
                             {% else %}
-                                <em class="fa fa-power-off">&nbsp;</em>
-                               <li> <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a> </li>
+                               <li style="padding:10px"> <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a> </li>
                             {% endif %}
 
 															
 					</ul>
 					<div class="main-menu">
-						<ul>
+						<ul style="padding:10px">
 							<li class="submenu">
 								<a href="{{path('index')}}" >ACCUEIL</a>
 								
 							</li>
 							<li class="submenu">
-								<a href="" class="show-submenu">DONNEZ</a>
+								<a href="" class="show-submenu">DONNEZ <i class="icon-down-open-mini"></i></a>
 								<ul>
-                                    <li><a href="{{path('demande_index')}}">Liste des demandes</a></li>
+									<li><a href="{{path('offre_new')}}">Déposez votre offre </a></li>
+									<li><a href="{{path('offre_user')}}">Vos offres</a></li>
+                                    <li><a href="{{path('demande_index')}}">Les demandes</a></li>
+
 								</ul>
 							</li>
 							<li class="submenu">
 								<a href="#0" class="show-submenu">RECEVEZ<i class="icon-down-open-mini"></i></a>
 								<ul>
 								    <li><a href="{{path('demande_new')}}">Déposez votre demande </a></li>
-                                    <li><a href="{{path('demande_user')}}">Liste de vos demandes</a></li>
+									 <li><a href="{{path('demande_user')}}">Vos demandes</a></li>
+									<li><a href="{{path('offre_index')}}">Les offres</a></li>
                                 	
 								</ul>
 							</li>

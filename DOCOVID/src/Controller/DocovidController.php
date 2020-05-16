@@ -152,6 +152,59 @@ class DocovidController extends AbstractFOSRestController
         }
         return $realEntities;
     }
+
+
+    /**********************search offre */
+    
+      /**
+     * @Route("/searchOffre", name="searchOffre", methods={"GET","POST"} )
+     */
+    public function searchOffreBar(Request $request){
+        
+        $entityManager = $this->getDoctrine()->getManager();
+        $query= $request->get('q');
+        $offres = $entityManager->getRepository(Offre::class)->findDemandeByQuery($query);
+
+        if (!$demandes) {
+            $result['offres']['error'] = "Pas de demandes avec ce matériel pour le moment";
+        } else {
+            $result['offres'] = $this->getRealEntities($offres);
+        }
+
+            return new Response(json_encode($result));
+
+    }
+
+    public function getRealEntitiesOffre($demandes){
+        foreach ($offres as $offres){
+            $livraison = $offres->getLivraison();
+
+            //var_dump();
+            $realEntities[$offres->getId()]= [
+
+                $offres->getMateriel(),
+                $offres->getQuantite(),
+                $offres->getDateOffres(),
+                $offres->getTimeOffres(),
+                $offres->getMessage(),
+                $livraison->getNomReceveur(),
+                $livraison->getPrenomReceveur(),
+                $livraison->getTelephone(),
+                $livraison->getAdresse(),
+                $livraison->getVille(),
+                $livraison->getCite(),
+                $livraison->getCodePostal(),
+                $offres->getId(),
+
+                
+
+
+                
+            ];
+
+        }
+        return $realEntities;
+    }
     /**********************REST APIS */
 
     /*****create new demande */
