@@ -109,7 +109,7 @@ class OffreController extends AbstractController
             $entityManager->persist($offre);
             $entityManager->flush();
 
-            return $this->redirectToRoute('offre_index');
+            return $this->redirectToRoute('offre_user');
         }
 
         return $this->render('offre/new.html.twig', [
