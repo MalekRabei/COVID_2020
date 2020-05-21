@@ -63,6 +63,8 @@
 								
                             {% else %}
                                <li style="padding:10px"> <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a> </li>
+							  <li style="padding:10px"> <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a> </li>
+
                             {% endif %}
 
 															
@@ -111,7 +113,7 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
 					<p>
-						<a href="index.html" title="Findoctor">
+						<a href="{{path('index')}}" title="Findoctor">
 							<img src={{asset('img/logo.png')}} data-retina="true" alt="" width="163" height="36" class="img-fluid">
 						</a>
 					</p>

@@ -13,6 +13,17 @@ easy_admin:
                     - tempsDemande
                     - message
                     - { property: 'livraison', label: 'Livraison'  ,type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\Livraison' } }
+        
+       Offre:
+           class: App\Entity\Offre
+           form:
+                fields:
+                    - materiel
+                    - quantite
+                    - dateOffre
+                    - timeOffre
+                    - message
+                    - { property: 'livraison', label: 'Livraison'  ,type: 'easyadmin_autocomplete', type_options: { class: 'App\Entity\Livraison' } }
                     
        Livraison:
             class: App\Entity\Livraison
@@ -29,6 +40,7 @@ easy_admin:
                     - email
                     - enabled
                     - lastLogin
+                    - profession
                     # if administrators are allowed to edit users' passwords and roles, add this:
                     - { property: 'plainPassword', type: 'text', type_options: { required: false } }
                     - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
@@ -43,6 +55,11 @@ easy_admin:
               children:
                     - {entity: Demande, label: "Liste des demandes", icon: "th-list"}
                     - {entity: Demande, label: "Ajouter Demande", icon: "plus", params: {action: 'new'}}
+                    - label: "Demande"
+            - label: "Offre"
+              children:
+                    - {entity: Offre, label: "Liste des offres", icon: "th-list"}
+                    - {entity: Offre, label: "Ajouter Offre", icon: "plus", params: {action: 'new'}}
             - label: "Livraison"
               children:
                     - {entity: Livraison, label: "Liste des Livraisons", icon: "th-list"}
