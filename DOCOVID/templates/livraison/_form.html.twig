@@ -1,0 +1,88 @@
+{{ form_start(form) }}
+
+<div class="form_title">
+						<h3><strong>1</strong> Vos Informations </h3>
+						<p>
+							Pour qu'on puisse vous communiquer le matériel.
+						</p>
+</div>
+<div class="step">
+<div class="row">
+
+<div class="col-md-6">
+{{form_label(form.nom_receveur)}}
+{{form_widget(form.nom_receveur , {'attr': {'class': '  form-control ' , 'placeholder':'Nom'}} )}}
+</div>
+<br/>
+<div class="col-md-6">
+{{form_label(form.prenom_receveur)}}
+{{form_widget(form.prenom_receveur ,{'attr': {'class': '  form-control ', 'placeholder':'Prénom'}} )}}
+</div>
+</div>
+<br/>
+<div class="row">
+<div class="col-md-6">
+{{form_label(form.telephone)}}
+{{form_widget(form.telephone , {'attr': {'class': '  form-control ','placeholder':'Téléphone'}})}}
+</div>
+</div>
+</div>
+<br/>
+<hr>
+
+<div class="form_title">
+						<h3><strong>2</strong>Où ? </h3>
+						<p>
+							 où vous souhaitez recevoir le matériel ?
+						</p>
+					</div>
+<div class="step">
+<div class="row">
+<div class="col-md-12">
+{{form_label(form.adresse )}}
+{{form_widget(form.adresse ,{'attr': {'class': '  form-control ','placeholder':'Adresse'}})}}
+</div>
+</div>
+
+<br/>
+
+<div class="row">
+<div class="col-md-4">
+{{form_label(form.ville )}}
+{{form_widget(form.ville ,{'attr': {'class': '  form-control ','placeholder':'Ville'}})}}
+</div>
+<br/>
+<div class="col-md-4">
+{{form_label(form.cite )}}
+{{form_widget(form.cite, {'attr': {'class': '  form-control ', 'placeholder':'Cité' , 'type':'textarea'}})}}
+</div>
+<br/>
+<div class="col-md-4">
+{{form_label(form.code_postal )}}
+{{form_widget(form.code_postal, {'attr': {'class': '  form-control ', 'placeholder':'Code Postal'}})}}
+</div>
+</div>
+</div>
+<br/>
+<hr>
+<!--End step -->
+<div id="policy">
+	<h4>Terme et Condition d'utilisation</h4>
+	<div class="form-group">
+		<div class="checkboxes">
+			<label class="container_check">J'accepte <a href="#">les termes et les conditions d'utilisation .</a>
+				<input type="checkbox">
+				<span class="checkmark"></span>
+			</label>
+		</div>
+	</div>
+</div>
+<hr>
+						
+    <button class="btn_1 full-width">{{ button_label|default('Confirmer') }}</button>
+{{ form_end(form) }}
+
+
+
+</body>
+</html>

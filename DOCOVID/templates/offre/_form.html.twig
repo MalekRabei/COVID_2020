@@ -1,0 +1,39 @@
+{{ form_start(form  )    }}
+
+
+<div class="row">
+
+<div class="col-md-6">
+{{form_widget(form.materiel , {'attr': {'class': '  form-control ' , 'placeholder':'Materiel'}} )}}
+</div>
+<div class="col-md-6">
+{{form_widget(form.quantite ,{'attr': {'class': '  form-control ', 'placeholder':'Quantité'}} )}}
+</div>
+</div>
+<br/>
+
+<div class="row">
+<div class="col-md-6">
+{{form_widget(form.date_offre , {'attr': {'class': '  form-control ','id':'booking_date' ,'type':'text'
+}})}}
+</div>
+
+<div class="col-md-6">
+{{form_widget(form.time_offre ,{'attr': {'class': '  form-control '}})}}
+</div>
+</div>
+<br/>
+{{form_widget(form.livraison ,{'attr': {'class': '  form-control ','hidden':'true'}})}}
+
+<div class="row">
+<div class="col-md-12">
+{{form_widget(form.message, {'attr': {'class': '  form-control ', 'placeholder':'Description' , 'type':'textarea'}})}}
+</div>
+</div>
+<br/>
+<hr>						
+    <button class="btn_1 full-width">{{ button_label|default('Confirmer') }}</button>
+
+
+{{ form_end(form) }}
+

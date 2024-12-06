@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}DOCOVID - Trouve le matériel qui te manque{% endblock %}</title>
+       
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Find easily a doctor and book online an appointment">
+	<meta name="author" content="Ansonika">
+ {% block stylesheets %}
+	<!-- Favicons-->
+	<link rel="shortcut icon" href={{ asset('img/favicon.png')}} type="image/x-icon">
+	<link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
+
+	<!-- BASE CSS -->
+	<link href={{ asset('css/bootstrap.min.css') }} rel="stylesheet">
+	<link href={{ asset('css/style.css') }} rel="stylesheet">
+	<link href={{ asset('css/menu.css') }} rel="stylesheet">
+	<link href={{ asset('css/vendors.css') }} rel="stylesheet">
+	<link href={{ asset('css/icon_fonts/css/all_icons_min.css') }} rel="stylesheet">
+    
+	<!-- YOUR CUSTOM CSS -->
+	<link href{{ asset('css/custom.css')}} rel="stylesheet">
+    {% endblock %}
+
+    </head>
+    <body>
+
+        {% block body %}
+		{% block header %} 
+		<header class="header_sticky">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-6">
+					<div id="logo">
+						<a href="{{path('index')}}" title="DOCOVID"><img src={{ asset('img/logo.png')}} data-retina="true" alt="" width="170" height="70"></a>
+					</div>
+				</div>
+				<nav class="col-lg-9 col-6">
+					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0">
+					<span>Menu mobile</span>
+					</a>
+					<ul id="top_access" style="padding:10px">
+					 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+					
+                    
+                           <li> <a   href="{{ path('fos_user_profile_show') }}">
+							       {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</a>
+							</li>
+						   <li> <a href="{{ path('fos_user_security_logout') }}" target="_blank"
+                               class="btn btn-label btn-label-brand btn-sm btn-bold">
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a> </li>
+
+
+								
+                            {% else %}
+                               <li style="padding:10px"> <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a> </li>
+							  <li style="padding:10px"> <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a> </li>
+
+                            {% endif %}
+
+															
+					</ul>
+					<div class="main-menu">
+						<ul style="padding:10px">
+							<li class="submenu">
+								<a href="{{path('index')}}" >ACCUEIL</a>
+								
+							</li>
+							<li class="submenu">
+								<a href="" class="show-submenu">DONNEZ <i class="icon-down-open-mini"></i></a>
+								<ul>
+									<li><a href="{{path('offre_new')}}">Déposez votre offre </a></li>
+									<li><a href="{{path('offre_user')}}">Vos offres</a></li>
+                                    <li><a href="{{path('demande_index')}}">Les demandes</a></li>
+
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="#0" class="show-submenu">RECEVEZ<i class="icon-down-open-mini"></i></a>
+								<ul>
+								    <li><a href="{{path('demande_new')}}">Déposez votre demande </a></li>
+									 <li><a href="{{path('demande_user')}}">Vos demandes</a></li>
+									<li><a href="{{path('offre_index')}}">Les offres</a></li>
+                                	
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="{{path('apropos')}}" >A PROPOS</a>
+								
+							</li>
+
+						</ul>
+					</div>
+					<!-- /main-menu -->
+				</nav>
+			</div>
+		</div>
+		<!-- /container -->
+	</header>
+		{% endblock %}
+		{% block footer %}
+		<footer>
+		<div class="container margin_60_35">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>
+						<a href="{{path('index')}}" title="Findoctor">
+							<img src={{asset('img/logo.png')}} data-retina="true" alt="" width="163" height="36" class="img-fluid">
+						</a>
+					</p>
+				</div>
+				<div class="col-lg-3 col-md-4">
+					<h5>A propos </h5>
+					<ul class="links">
+						<li><a href="{{path('apropos')}}">A propos de nous</a></li>
+						<li><a href="{{path('cgu')}}">CGU</a></li>
+						
+					</ul>
+				</div>
+				
+				<div class="col-lg-3 col-md-4">
+					<h5>Contactez Nous</h5>
+					<ul class="contacts">
+						<li><a href="mailto:contact@flagpass.com"><i class="icon_mail_alt"></i>contact@flagpass.com</a></li>
+					</ul>
+					<div class="follow_us">
+						<h5>Suivez Nous</h5>
+						<ul>
+							<li><a href="http:\\www.facebook.com/docovid.fr"><i class="social_facebook"></i></a></li>
+							<li><a href="http:\\www.instagram.com/docovid.fr"><i class="social_instagram"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--/row-->
+			<hr>
+			<div class="row">
+				<div class="col-md-8">
+					<ul id="additional_links">
+						<li><a href="{{path('cgu')}}">Termes et conditions</a></li>
+						<li>Confidentialité</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<div id="copy">Made with <img src={{asset('img/health.png')}}> © 2020 Malek Rabei & Iheb Farhani</div>
+				</div>
+			</div>
+		</div>
+	</footer> {% endblock %}
+		{% endblock %}
+    
+    {% block javascripts %}
+        
+	<!-- COMMON SCRIPTS -->
+	<script src={{ asset('js/jquery-2.2.4.min.js') }}></script>
+	<script src={{ asset('js/common_scripts.min.js') }}></script>
+	<script src={{ asset('js/functions.js') }}></script>
+    {% endblock %}
+    </body>
+</html>

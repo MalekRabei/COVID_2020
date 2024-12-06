@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DOCOVID - Recevez {% endblock %}
+
+{% block body %}
+
+
+<body>
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+    
+	{% block header %}
+	{{ parent() }}
+	 {% endblock %}
+	<!-- /header -->
+	
+	
+	<main>
+		<div id="breadcrumb">
+			<div class="container">
+				<ul>
+					<li><a href="#">Demande</a></li>
+					<li><a href="#">Postulez</a></li>
+					<li>Page active</li>
+				</ul>
+			</div>
+		</div>
+		<!-- /breadcrumb -->
+
+		<div class="container margin_60">
+			<div class="row">
+				<div class="col-xl-12 col-lg-12">
+					
+					<div class="box_general_3 booking">
+						<div class="title">
+							<h3>Recevez du matériel</h3>
+							<small>et protégez-vous </small>
+						</div>
+						<div id="message-booking"></div>
+							{{ include('demande/_form.html.twig') }}
+
+						<div style="position:relative;">
+						
+						</div>
+
+
+					</div>
+					<!-- /box_general -->
+
+					
+				</div>
+				<!-- /col -->
+			
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</main>
+	<!-- /main -->
+	
+	{% block footer %}
+	   {{ parent() }}
+	 {% endblock %}
+	<!--/footer-->
+
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+	 {% block javascripts %}
+	   {{ parent() }}
+	 {% endblock %}
+
+{% endblock %}
+

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DOCOVID - Trouve le matériel qui te manque{% endblock %}
+
+{% block body %}
+ <body>
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+    
+	{% block header %}
+	   {{ parent() }}
+	 {% endblock %}	
+	
+	<main>
+		<div id="breadcrumb">
+			<div class="container">
+				<ul>
+					<li><a href="#">Demande</a></li>
+					<li><a href="#">Confirmation</a></li>
+					<li>Page active</li>
+				</ul>
+			</div>
+		</div>
+		<!-- /breadcrumb -->
+
+		<div class="container margin_120">
+			<div class="row justify-content-center">
+				<div class="col-lg-8">
+					<div id="confirm">
+						<div class="icon icon--order-success svg add_bottom_15">
+							<svg xmlns="http://www.w3.org/2000/svg" width="72" height="72">
+								<g fill="none" stroke="#8EC343" stroke-width="2">
+									<circle cx="36" cy="36" r="35" style="stroke-dasharray:240px, 240px; stroke-dashoffset: 480px;"></circle>
+									<path d="M17.417,37.778l9.93,9.909l25.444-25.393" style="stroke-dasharray:50px, 50px; stroke-dashoffset: 0px;"></path>
+								</g>
+							</svg>
+						</div>
+					<h2>Merci !</h2>
+					<p>Votre demande a été bien créer avec succès ! </p>
+					</div>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</main>
+	<!-- /main -->
+	
+	
+	{% block footer %}
+	   {{ parent() }}
+	 {% endblock %}
+	<!--/footer-->
+
+
+
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+
+	<!-- COMMON SCRIPTS -->
+	{% block javascripts %}
+	   {{ parent() }}
+	 {% endblock %}
+     
+</body>
+{% endblock %}

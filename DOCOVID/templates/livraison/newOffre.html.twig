@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DOCOVID - Où ?{% endblock %}
+
+{% block body %}
+<body>
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+    
+	
+	{% block header %}
+	{{ parent() }}
+	 {% endblock %}
+	<!-- /header -->
+	
+	<main>
+		<div id="breadcrumb">
+			<div class="container">
+				<ul>
+					<li><a href="#">Offre</a></li>
+					<li><a href="#">Livraison</a></li>
+					<li>Page active</li>
+				</ul>
+			</div>
+		</div>
+		<!-- /breadcrumb -->
+
+		<div class="container margin_60">
+			<div class="row">
+
+				<div class="col-xl-8 col-lg-8">
+				<div class="box_general_3 cart">
+					 {{ include('livraison/_form.html.twig') }}
+				</div>
+				</div>
+				
+
+
+
+				<!-- /col -->
+				<aside class="col-xl-4 col-lg-4" id="sidebar">
+					<div class="box_general_3 booking">
+						<form>
+							<div class="title">
+								<h3>Votre offre</h3>
+							</div>
+							<div class="summary">
+								<ul>
+									<li>Date: <strong class="float-right">{{offre.dateOffre | date("d/m/y") }}</strong></li>
+									<li>Time: <strong class="float-right">{{offre.timeOffre | date('H:m')}} </strong></li>
+									<li>Remarque: <strong class="float-right">{{offre.message}}</strong></li>
+								</ul>
+							</div>
+							<ul class="treatments checkout clearfix">
+								<li>
+									Matériel <strong class="float-right">{{ offre.materiel}}</strong>
+								</li>
+								<li>
+									Quantité <strong class="float-right">{{offre.quantite}}</strong>
+								</li>
+								
+							</ul>
+							
+						</form>
+					</div>
+					<!-- /box_general -->
+				</aside>
+				<!-- /asdide -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</main>
+	<!-- /main -->
+	
+	{% block footer %}
+	{{ parent() }}
+	 {% endblock %}
+	<!--/footer-->
+
+
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+		{% block javascripts %}
+			{{ parent() }}
+		{% endblock %}
+     
+</body>
+
+{% endblock %}

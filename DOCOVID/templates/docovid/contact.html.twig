@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DOCOVID - Contact{% endblock %}
+
+{% block body %}
+<body>
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+    
+   {% block header %}
+	   {{ parent() }}
+	 {% endblock %}
+	<!-- /header -->
+	
+	<main>		
+		<div class="container margin_60_35">
+			<div class="row">
+				<aside class="col-lg-3 col-md-4">
+					<div id="contact_info">
+						<h3>Contacts info</h3>
+						<p>
+							<a href="#"> </a>
+						</p>
+						
+						<ul>
+							<li><strong>Administration</strong>
+								<a href="mailto:m.rabei@flagpass.com">m.rabei@flagpass.com</a><br>
+								<small>Lundi à Vendredi 09:00 - 19:00</small>
+							</li>
+							<li><strong>General questions</strong>
+								<a href="mailto:contact@flagpass.com">contact@flagpass.com</a><br>
+								<p><small>Lundi à Diamnche 09:00 - 16:00</small></p>
+							</li>
+						</ul>
+					</div>
+				</aside>
+				<!--/aside -->
+				<div class=" col-lg-8 col-md-8 ml-auto">
+					<div class="box_general">
+						<h3>Contactez nous</h3>
+						<p>
+							Nous sommes disponibles pour vous répondre à tous vos questions.
+						</p>
+						<div>
+							<div id="message-contact"></div>
+						{{form_start(contactForm)}}
+								<div class="row">
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group">
+						                            {{ form_widget(contactForm.prenom ,{'attr': {'class': '  form-control ',  'placeholder':'Prenom'}}) }}
+										</div>
+									</div>
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group">
+						                            {{ form_widget(contactForm.nom ,{'attr': {'class': '  form-control ',  'placeholder':'Nom'}}) }}
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group">
+						                            {{ form_widget(contactForm.email ,{'attr': {'class': '  form-control ',  'placeholder':'Email'}}) }}
+										</div>
+									</div>
+									<div class="col-md-6 col-sm-6">
+										<div class="form-group">
+						                            {{ form_widget(contactForm.telephone ,{'attr': {'class': '  form-control ',  'placeholder':'Telephone'}}) }}
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+						                            {{ form_widget(contactForm.message ,{'attr': {'class': '  form-control ',  'placeholder':'Message'}}) }}
+										</div>
+									</div>
+								</div>
+													 {{ form_widget(contactForm.Envoyer ,{'attr': {'class': ' btn_1 add_top_20  '}}) }}
+
+							{{form_end(contactForm)}}
+						</div>
+						<!-- /col -->
+					</div>
+				</div>
+				<!-- /col -->
+			</div>
+			<!-- End row -->
+		</div>
+		<!-- /container -->
+	</main>
+	<!-- /main -->
+	
+	{% block footer %}
+	   {{ parent() }}
+	 {% endblock %}
+	<!--/footer-->
+
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+
+	<!-- COMMON SCRIPTS -->
+	{% block javascripts %}
+	   {{ parent() }}
+	 {% endblock %}
+     
+</body>
+{% endblock %}

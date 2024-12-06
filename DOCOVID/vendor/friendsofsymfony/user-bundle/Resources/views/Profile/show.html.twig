@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}DOCOVID - Profil{% endblock %}
+{% block body %}
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+    
+
+	
+
+{% block header %}
+	{{ parent() }}
+{% endblock %}
+
+{% block fos_user_content %}
+<div id="breadcrumb">
+			<div class="container">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Category</a></li>
+					<li>Page active</li>
+				</ul>
+    </div>
+</div>
+<div class="container margin_60">
+			<div class="row">
+				<div class="col-xl-8 col-lg-8">
+					<nav id="secondary_nav">
+						<div class="container">
+							<ul class="clearfix">
+								<li><a href="#section_1" class="active">Profil utilisateur</a></li>
+							</ul>
+						</div>
+					</nav>
+
+                    {% include "@FOSUser/Profile/show_content.html.twig" %}
+
+					
+			</div>
+			<!-- /col -->
+				
+			</div>
+			<!-- /row -->
+		</div>
+{% endblock fos_user_content %}
+
+{% block footer %}
+	{{ parent() }}
+{% endblock %}
+{% endblock %}

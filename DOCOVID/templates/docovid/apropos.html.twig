@@ -1,0 +1,183 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}DOCOVID - A propos{% endblock %}
+
+{% block body %}
+<body>
+
+	<div class="layer"></div>
+	<!-- Mobile menu overlay mask -->
+
+	<div id="preloader">
+		<div data-loader="circle-side"></div>
+	</div>
+	<!-- End Preload -->
+    
+	{% block header %}
+	{{ parent() }}
+	 {% endblock %}
+
+	<!-- /header -->	
+	
+	<main>
+		<div id="breadcrumb">
+			<div class="container">
+				<ul>
+					<li><a href="#">A propos</a></li>
+					<li>Page active</li>
+				</ul>
+			</div>
+		</div>
+		<!-- /breadcrumb -->
+
+		<div class="bg_color_1">
+			<div class="container margin_120_95">
+				<div class="main_title">
+					<h1>A propos de DOCOVID</h1>
+					<p>Il est temps pour combattre le CORONA Virus ensemble !</p>
+				</div>
+				<div class="row justify-content-between">
+					<div class="col-lg-6">
+						<figure class="add_bottom_30">
+							<img src={{ asset('img/logo.png')}} class="img-fluid" alt="">
+						</figure>
+					</div>
+					<div class="col-lg-5">
+					<p > DOCOVID est un service GRATUIT pour aider le personnel médical dans l'exercice de ses fonctions. <br/><br/>
+
+							 Si vous detenez des masques, blouses, etc,  DOCOVID est une application qui vous met 
+							 en lien avec les soignants ,en manque de materiel autour de vous. <br/> <br/>
+							 Les citoyens vous contactent pour vous donner le matériel qu'il vous manque. <br/>
+							 <br/>
+							 
+							 Un seul masque vaut mille MERCI. <br/><br><p>
+
+							 <p>Plateforme réalisée en consultant l'avis de professionnels de santé composés de medecins, d' infirmières et autres membres du personnel medical français.
+								<br/>Merci à :
+								<br/>Mme C.V, infirmière diplômée d'état.
+								<br/>Dr S.C , psyco analyste Clinicienne consultante de medecins,
+								<br/>Dr. P. Medecin à domicile,
+								<br/>ainsi qu'à tous les autres membres du personnel soignant.<p>
+					</div>		  
+				</div>
+				<!--/row-->
+			</div>
+			<!--/container-->
+		</div>
+		<!--/bg_color_1-->
+		
+		<div class="container margin_120_95">
+			<div class="main_title">
+				<h2>Nos fondateurs</h2>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4 col-md-6 ">
+					<a >
+							<center>
+							<img src={{ asset('img/shems.jpg')}} alt=""><br><br>
+							<strong>Sun Doréann </strong>
+							<br><em>Fondatrice </em>
+						</center>
+					</a>
+					
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<a>
+
+						<center>
+							<img src={{ asset('img/malek.jpg')}} alt=""><br> <br>
+							<strong>Malek Rabei </strong>
+							<br><em>Développeuse du site Web </em>
+						</center>
+					</a>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<a >
+						<center>
+							<img src={{ asset('img/iheb.jpg')}} alt=""><br> <br>
+							<strong>Mohamed Iheb Farhani </strong>
+							<br><em> Développeur de l'application Mobile </em>
+						</center>
+					</a>
+				</div>
+				
+			</div>
+			<br><br><br>
+				<div class="col-lg-12 col-md-12">
+					<a >
+						<center>
+							<br><em> <strong><p>
+							Cette plateforme a été créé en quelques jours par 3 personnes.<br>
+							 Si vous rencontrez un bugg, soyez indulgents et n'hésitez pas à nous en informer via
+							  notre formulaire de <a href="{{path('contact')}}">contact</a>.
+
+					<br>
+			Nous restons à votre disposition, vous pouvez nous contacter  via notre page Facebook et Instagram DOCOVID  aussi.
+			<br> Merci et bienvenue à DOCOVID ! <p></strong> </em>
+						</center>
+					</a>
+				</div>
+				
+			</div>
+			<!--/row-->
+			<!-- /carousel -->
+		</div>
+		<!--/container-->
+		
+		<div class="container margin_120_95">
+			<div class="main_title">
+				<h2>Pourquoi Choisir Docovid</h2>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<a class="box_feat_about" href="#0">
+						<i class="pe-7s-id"></i>
+						<h3>Aide</h3>
+						<p>Pour aider directement les soignants et avoir un impact concret 
+						dans la lutte contre le COVID19.</p>
+						<p>
+						Vous savez exactement où vont vos dons.
+						De plus confectionner du materiel vous occupe seul ou en famille pendant la quarantaine.</p>
+					</a>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<a class="box_feat_about" href="#0">
+						<i class="pe-7s-help2"></i>
+						<h3>24/7 Support</h3>
+						<p>Notre équipe est toujours disponible 24/7 pour vous guider et répondre à tous vos questions ,
+						 afin d'améliorer votre éxperience d'utilisation. </p>
+					
+					</a>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<a class="box_feat_about" href="#0">
+						<i class="pe-7s-date"></i>
+						<h3>Echange Instantané</h3>
+					<p>Conseil : Déposer vos dons dans un endroit de confiance proche de chez vous . 
+					Ou restez à 1 mètre de distance lors des échanges et attendez que le soignant récupere le don. </p>					</a>
+				</div>
+				
+			</div>
+			<!--/row-->
+		</div>
+		<!-- /container -->
+		
+	</main>
+	<!-- /main -->
+	
+	{% block footer %}
+	{{ parent() }}
+	 {% endblock %}
+	<!--/footer-->
+
+	<div id="toTop"></div>
+	<!-- Back to top button -->
+
+	<!-- COMMON SCRIPTS -->
+	{% block javascripts %}
+	   {{ parent() }}
+	 {% endblock %}
+     
+</body>
+{% endblock %}
